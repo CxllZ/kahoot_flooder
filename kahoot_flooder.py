@@ -1,9 +1,10 @@
 from kahoot import client
-import threading2, time, requests, os, pyfiglet
+import threading2, time, os, pyfiglet, requests
 from colorama import Fore, init
 from termcolor import colored
 
-f = open("names.txt", 'r').readlines()
+req = requests.get("https://raw.githubusercontent.com/CxllZ/kahoot_flooder/main/names.txt")
+f = req.text.split("\n")
 init()
 banner = colored(pyfiglet.figlet_format("Kahoot Flooder", font="slant"), color="red")
 pin = 0
