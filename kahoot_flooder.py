@@ -17,11 +17,10 @@ pin = int(input(f"{Fore.GREEN}Enter Kahoot lobby PIN code: "))
 ite = int(input(f"{Fore.GREEN}Enter how many bots u want connected?: "))
 
 if ite > 2000:
-	print(f"{Fore.RED}Cannot exceed 2000 bots, Limit reached!\n{Fore.RED}Automatically setting amount of bots to 2000!\n{Fore.RED}2000 bots might not acutally join!")
+	print(f"{Fore.RED}Cannot exceed 2000 bots!\n{Fore.RED}Automatically setting amount of bots to 2000!\n{Fore.RED}2000 bots might not acutally join!")
 	ite = 2000
 else:
 	pass
-
 
 def thread_func(name: str):
 	def joinHandle():
@@ -29,7 +28,6 @@ def thread_func(name: str):
 	bot = client()
 	bot.join(int(pin), str(name))
 	bot.on("joined", joinHandle)
-
 
 def main():
 	t = None
